@@ -1,0 +1,19 @@
+name: PN-FNC
+version: 0.0.1
+description: The Feds 'n Crims plugin for Pixel Network.
+author: Knight
+
+main: gq.pixelnetwork.fedsncrims.Main
+
+commands:
+    fnc:
+        usage: Syntax error! Please enter a valid command!
+        description: The base command for all Feds 'n Crims related commands.
+
+permissions:
+    fnc.*:
+        description: Gives permission for all Feds 'n Crims commands.
+        children:
+            fnc.base: true
+    fnc.base:
+        description: Gives permission for all basic Feds 'n Crims commands.
