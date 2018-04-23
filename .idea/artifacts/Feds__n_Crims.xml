@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Feds 'n Crims">
+    <output-path>$PROJECT_DIR$/../Test Server/plugins</output-path>
+    <root id="archive" name="Feds 'n Crims.jar">
+      <element id="module-output" name="Feds-n-Crims" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+    </root>
+  </artifact>
+</component>

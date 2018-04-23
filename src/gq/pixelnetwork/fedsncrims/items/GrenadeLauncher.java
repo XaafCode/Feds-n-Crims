@@ -16,9 +16,9 @@ public class GrenadeLauncher {
         ItemStack gun = new ItemStack(Material.IRON_AXE);
         ItemMeta gunMeta = gun.getItemMeta();
 
-        gunMeta.setDisplayName(ChatColor.WHITE + "Rocket Launcher");
+        gunMeta.setDisplayName(ChatColor.WHITE + "Grenade Launcher");
         ArrayList<String> lore = new ArrayList<String>();
-        lore.add(ChatColor.WHITE + "Ammo Type: Rockets");
+        lore.add(ChatColor.WHITE + "Ammo Type: Grenade");
         gunMeta.setLore(lore);
 
         gun.setItemMeta(gunMeta);
@@ -37,7 +37,7 @@ public class GrenadeLauncher {
     }
 
     public String getBulletName() {
-        return " grenade";
+        return " grenade_launcher";
     }
 
     /**
@@ -52,7 +52,7 @@ public class GrenadeLauncher {
      */
     public void fire(Player player) {
         Snowball s = player.launchProjectile(Snowball.class);
-        s.setCustomName(player.getUniqueId().toString() + " grenade");
+        s.setCustomName(player.getUniqueId().toString() + getBulletName());
         s.setCustomNameVisible(true);
         s.getWorld().playEffect(player.getLocation(), Effect.SMOKE, 10);
     }
