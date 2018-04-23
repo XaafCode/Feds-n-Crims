@@ -2,7 +2,12 @@ package gq.pixelnetwork.fedsncrims.items;
 
 import java.util.ArrayList;
 
+import org.bukkit.Effect;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -10,7 +15,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Pistol {
 	private ItemStack createGun() {
-		ItemStack gun = new ItemStack(Material.GOLD_PICKAXE);
+		ItemStack gun = new ItemStack(Material.GOLD_AXE);
 		ItemMeta gunMeta = gun.getItemMeta();
 		
 		gunMeta.setDisplayName(ChatColor.WHITE + "Pistol");
@@ -32,9 +37,21 @@ public class Pistol {
 	public ItemMeta getGunMeta() {
 		return createGun().getItemMeta();
 	}
-	
-	/** Returns the display name using §-symbols instead of ChatColor.X */
-	public String getBareDisplayName() {
-		return "§fPistol";
+
+    /**
+     * Returns the gun's material
+     */
+	public Material materialType() {
+		return createGun().getType();
 	}
+
+    /**
+     * Fires the gun
+     */
+	public void fire(Player player) {
+        Snowball s = player.launchProjectile(Snowball.class);
+        s.setCustomName(player.getUniqueId().toString() + " pistol");
+        s.setCustomNameVisible(true);
+        s.getWorld().playEffect(player.getLocation(), Effect.SMOKE, 10);
+    }
 }

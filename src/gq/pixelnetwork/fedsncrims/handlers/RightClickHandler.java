@@ -8,17 +8,17 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class RightClickHandler implements Listener {
-	private static GunHandler gunHandler = new GunHandler();
-	
+    private static GunHandler gunHandler = new GunHandler();
+
 	@EventHandler
 	public void onPlayerRightClick(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
 		Action action = event.getAction();
 		ItemStack item = event.getItem();
 		
-		if (action.equals(Action.RIGHT_CLICK_AIR)) {
-			if (item != null && gunHandler.isHoldingGun(item.getItemMeta())) {
-				player.sendMessage("HOLDING A PISTOL!");
+		if (action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK)) {
+			if (item != null && gunHandler.isHoldingGun(item)) {
+				gunHandler.fire("pistol", player);
 			}
 		}
 	}

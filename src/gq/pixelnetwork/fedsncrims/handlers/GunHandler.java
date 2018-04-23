@@ -1,7 +1,7 @@
 package gq.pixelnetwork.fedsncrims.handlers;
 
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.ItemStack;
 
 import gq.pixelnetwork.fedsncrims.items.Pistol;
 
@@ -9,10 +9,10 @@ public class GunHandler {
 	private static Pistol pistol = new Pistol();
 	
 	/** Check if the given ItemMeta corresponds with a gun's ItemMeta
-	 * @param itemMeta
+	 * @param		itemStack
 	 */
-	public boolean isHoldingGun(ItemMeta itemMeta) {
-		if (itemMeta.getDisplayName() == pistol.getBareDisplayName()) {
+	public boolean isHoldingGun(ItemStack itemStack) {
+		if (itemStack.getType() == pistol.materialType()) {
 			return true;
 		}
 		
@@ -20,9 +20,15 @@ public class GunHandler {
 	}
 	
 	/** Give all guns to the player
-	 * @param Player player
+	 * @param		player
 	 */
 	public void getGuns(Player player) {
 		player.getInventory().addItem(pistol.getGun());
+	}
+
+	public void fire(String gun, Player player) {
+		if (gun == "pistol") {
+			pistol.fire(player);
+		}
 	}
 }

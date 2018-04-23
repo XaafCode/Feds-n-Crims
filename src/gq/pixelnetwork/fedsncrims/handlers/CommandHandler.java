@@ -3,6 +3,7 @@ package gq.pixelnetwork.fedsncrims.handlers;
 import org.bukkit.Bukkit;
 
 import gq.pixelnetwork.fedsncrims.commands.FNC;
+import gq.pixelnetwork.fedsncrims.commands.Join;
 
 public class CommandHandler {
 	public void setExecutors() {
@@ -11,5 +12,6 @@ public class CommandHandler {
 		 * CommandName() is a class in the commands package.
 		 */
 		Bukkit.getPluginCommand("fnc").setExecutor(new FNC());
+		Bukkit.getPluginCommand("join").setExecutor(new Join());
 	}
 }
