@@ -16,11 +16,13 @@ public class Main extends JavaPlugin {
 	private static Listener rightClickHandler = new RightClickHandler();
 	private static Listener leaveEvent = new LeaveEvent();
 	private static Listener projectileHitEvent = new ProjectileHit();
-//	private static FileHandler FileHandler  = new FileHandler();
+	private static FileHandler FileHandler  = new FileHandler();
 
 	public void onEnable() {
 		Log.info("Enabled the \"Feds 'n Crimes\" plugin!");
-//		FileHandler.saveConf();
+		FileHandler.jp = this;
+
+		FileHandler.loadConfig();
 		
 		Bukkit.getPluginManager().registerEvents(rightClickHandler, this);
 		Bukkit.getPluginManager().registerEvents(leaveEvent, this);

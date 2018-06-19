@@ -8,17 +8,15 @@ main: gq.pixelnetwork.fedsncrims.Main
 commands:
     fnc:
         usage: Syntax error! Please enter a valid command!
-        description: The base command for all Feds 'n Crims related commands.
-    join:
-        usage: Syntax error! Please enter a valid command!
-        description: Use this command to join a team!
+        description: The base command for all Feds 'n Crims.
 
 permissions:
     fnc.*:
         description: Gives permission for all Feds 'n Crims commands.
         children:
             fnc.base: true
+            fnc.debug: true
     fnc.base:
         description: Gives permission for all basic Feds 'n Crims commands.
-    fnc.join:
-        description: Gives permission to join a game.
+    fnc.debug:
+        description: Gives permission for all debug related commands.

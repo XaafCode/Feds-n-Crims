@@ -2,6 +2,7 @@ package gq.pixelnetwork.fedsncrims.items;
 
 import java.util.ArrayList;
 
+import gq.pixelnetwork.fedsncrims.handlers.FileHandler;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,6 +15,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.md_5.bungee.api.ChatColor;
 
 public class Pistol {
+	private static FileHandler fileHandler = new FileHandler();
+
 	private ItemStack createGun() {
 		ItemStack gun = new ItemStack(Material.GOLD_AXE);
 		ItemMeta gunMeta = gun.getItemMeta();
@@ -51,7 +54,11 @@ public class Pistol {
 	public void fire(Player player) {
         Snowball s = player.launchProjectile(Snowball.class);
         s.setCustomName(player.getUniqueId().toString() + " pistol");
-        s.setCustomNameVisible(true);
+
+        if (fileHandler.getBool("debug")) {
+			s.setCustomNameVisible(true);
+		}
+
         s.getWorld().playEffect(player.getLocation(), Effect.SMOKE, 10);
     }
 }

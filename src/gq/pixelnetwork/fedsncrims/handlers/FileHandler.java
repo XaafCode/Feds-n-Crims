@@ -1,80 +1,42 @@
 package gq.pixelnetwork.fedsncrims.handlers;
 
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.craftbukkit.libs.jline.internal.Log;
-
 import gq.pixelnetwork.fedsncrims.Main;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class FileHandler {
-    Main jp = new Main();
+    public static JavaPlugin jp;
 
-    FileConfiguration config = jp.getConfig();
+    /**
+     * Loads the Config file, including the Defaults
+     */
+    public void loadConfig() {
+        String path = "debug";
+        jp.getConfig().addDefault(path, "false");
 
-    /** Saves the Default Config */
-    public void saveConf() {
-        jp.saveDefaultConfig();
-        Log.info("[Feds 'n Crims] Saving the config!");
+        jp.getConfig().options().copyDefaults(true);
+        jp.saveConfig();
     }
 
     /**
-     * Gets the Config file
-     * @return configuration file
+     * Reloads the Config
      */
-    public FileConfiguration getConf() {
-        return config;
+    public void reloadConfig() {
+        jp.reloadConfig();
     }
 
-    /**
-     * Adds a Boolean to the config
-     * @param key   Location that the Boolean will be stored at
-     * @param value Value for the key
-     */
-    public void addBool(String key, boolean value) {
-        config.addDefault(key, value);
+    public void set(String path, Object value) {
+        jp.getConfig().set(path, value);
     }
 
-    /**
-     * Gets a Boolean value for a key in the config
-     * @param key   Location that contains a Boolean value
-     * @return      Value for the key
-     */
-    public boolean getBool(String key) {
-        return config.getBoolean(key);
+    public String getString(String path) {
+        return jp.getConfig().getString(path);
     }
 
-    /**
-     * Adds a String to the config
-     * @param key   Location that the String will be stored at
-     * @param value Value for the key
-     */
-    public void addString(String key, String value) {
-        config.addDefault(key, value);
+    public int getInt(String path) {
+        return jp.getConfig().getInt(path);
     }
 
-    /**
-     * Gets a String value for a key in the config
-     * @param key   Location that contains a String value
-     * @return      Value for the key
-     */
-    public String getString(String key) {
-        return config.getString(key);
-    }
-
-    /**
-     * Adds an Integer to the config
-     * @param key   Location that the Integer will be stored at
-     * @param value Value for the key
-     */
-    public void addInt(String key, int value) {
-        config.addDefault(key, value);
-    }
-
-    /**
-     * Gets an Integer value for a key in the config
-     * @param key   Location that contains an Integer value
-     * @return      Value for the key
-     */
-    public int getInt(String key) {
-        return config.getInt(key);
+    public boolean getBool(String path) {
+        return jp.getConfig().getBoolean(path);
     }
 }
