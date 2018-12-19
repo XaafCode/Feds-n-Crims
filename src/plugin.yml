@@ -1,7 +1,7 @@
 name: PN-FNC
-version: 0.0.1
+version: 0.0.2
 description: The Feds 'n Crims plugin for Pixel Network.
-author: Knight
+author: Xaaf
 
 main: gq.pixelnetwork.fedsncrims.Main
 
