@@ -15,13 +15,14 @@ public class GunHandler {
 	 * @param		itemStack
 	 */
 	public boolean isHoldingGun(ItemStack itemStack) {
-		if (itemStack.getType() == pistol.materialType()) {
+		switch(itemStack.getType()) {
+		case pistol.materialType():
 			return true;
-		} else if (itemStack.getType() == grenadeLauncher.materialType()) {
+		case grenadeLauncher.materialType():
 			return true;
+		default:
+			return false;
 		}
-		
-		return false;
 	}
 
 	/**

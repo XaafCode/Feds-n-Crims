@@ -16,6 +16,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Pistol {
 	private static FileHandler fileHandler = new FileHandler();
+	private final float damage = 3;
 
 	private ItemStack createGun() {
 		ItemStack gun = new ItemStack(Material.GOLD_AXE);
@@ -61,4 +62,11 @@ public class Pistol {
 
         s.getWorld().playEffect(player.getLocation(), Effect.SMOKE, 10);
     }
+
+	/**
+	 * How much damage does the gun do
+	 */
+	public float getDamage() {
+		return damage;
+	}
 }
