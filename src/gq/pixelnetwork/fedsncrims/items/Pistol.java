@@ -2,7 +2,6 @@ package gq.pixelnetwork.fedsncrims.items;
 
 import java.util.ArrayList;
 
-import gq.pixelnetwork.fedsncrims.handlers.FileHandler;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.md_5.bungee.api.ChatColor;
+
+import gq.pixelnetwork.fedsncrims.handlers.FileHandler;
 
 public class Pistol {
 	private static FileHandler fileHandler = new FileHandler();

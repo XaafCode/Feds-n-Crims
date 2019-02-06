@@ -1,14 +1,15 @@
 package gq.pixelnetwork.fedsncrims.commands;
 
-import gq.pixelnetwork.fedsncrims.handlers.FileHandler;
-import gq.pixelnetwork.fedsncrims.handlers.PlayerHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import gq.pixelnetwork.fedsncrims.handlers.GunHandler;
 import net.md_5.bungee.api.ChatColor;
+
+import gq.pixelnetwork.fedsncrims.handlers.GunHandler;
+import gq.pixelnetwork.fedsncrims.handlers.FileHandler;
+import gq.pixelnetwork.fedsncrims.handlers.TeamHandler;
 
 public class FNC implements CommandExecutor {
 	private static GunHandler gunHandler = new GunHandler();

@@ -12,6 +12,6 @@ public class LeaveEvent implements Listener {
     public void onPlayerLeave(PlayerQuitEvent event) {
 
 
-        Log.info("Player has left...");
+        Log.info("Player " + event.getPlayer().getName() + " has left...");
     }
 }
