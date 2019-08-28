@@ -43,7 +43,7 @@ public class GunHandler {
 	/** Give all guns to the player
 	 * @param player
 	 */
-	public void getGuns(Player player) {
+	public void giveGuns(Player player) {
 		player.getInventory().addItem(pistol.getGun());
 		player.getInventory().addItem(grenadeLauncher.getGun());
 	}
